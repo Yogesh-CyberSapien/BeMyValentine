@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Priya!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background-color: #ffdde1; 
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Floating Hearts Background */
+        .bg-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: #ff5e62;
+            transform: rotate(45deg);
+            animation: floatUp 10s infinite linear;
+            opacity: 0.6;
+        }
+
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ff5e62;
+            border-radius: 50%;
+        }
+
+        .heart::before { top: -20px; left: 0; }
+        .heart::after { top: 0; left: -20px; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(45deg) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-120vh) rotate(45deg) scale(1); opacity: 0; }
+        }
+
+        /* Container for Pages */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        /* Page Logic */
+        .page {
+            display: none; /* Hidden by default */
+            animation: fadeIn 1.5s ease-in-out;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page.active {
+            display: flex; /* Show active page */
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #d63384;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Images */
+        .photo-frame {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.5s;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.02);
+        }
+
+        /* Buttons */
+        .btn {
+            background: #ff5e62; /* Red/Pink */
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
+        }
+
+        .btn:hover {
+            background: #ff9966;
+            transform: translateY(-2px);
+        }
+
+        /* Special text for Page 5 */
+        .muddu-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ff0040;
+            margin-top: 20px;
+            text-transform: uppercase;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="audio1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="bg-hearts" id="heartContainer"></div>
+
+    <div class="container">
+        
+        <div id="page1" class="page active">
+            <h1>Hey Priya...</h1>
+            <p>I have a little surprise for you today.</p>
+            <p>Are you ready?</p>
+            <button class="btn" onclick="nextPage()">Click to Start ❤️</button>
+        </div>
+
+        <div id="page2" class="page">
+            <img src="imgpriya1.jpg" alt="Priya 1" class="photo-frame">
+            <h1>Happy Valentine's Day!</h1>
+            <p>To the girl who makes my world brighter every single day. Seeing your smile is the best part of my life.</p>
+            <button class="btn" onclick="nextPage()">Next 🌹</button>
+        </div>
+
+        <div id="page3" class="page">
+            <img src="imgpriya2.jpg" alt="Priya 2" class="photo-frame">
+            <h1>You are Special</h1>
+            <p>Every moment with you is a memory I cherish. You are my happiness, my laughter, and my favorite person.</p>
+            <button class="btn" onclick="nextPage()">Next 🌹</button>
+        </div>
+
+        <div id="page4" class="page">
+            <img src="imgpriya3.jpg" alt="Priya 3" class="photo-frame">
+            <h1>My Forever</h1>
+            <p>I don't just want you for Valentine's Day, I want you by my side for every day that follows.</p>
+            <button class="btn" onclick="nextPage()">One Last Thing... 🥺</button>
+        </div>
+
+        <div id="page5" class="page">
+            <h1>I am Sorry...</h1>
+            <p>I know I'm not perfect. I make mistakes, and sometimes I annoy you. But my love for you is bigger than any fight.</p>
+            <p>I promise to be better.</p>
+            <div class="muddu-text">
+                Matte Jagla ella Madalla MUDDUUUUUU..!
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+        const audio = document.getElementById("bgMusic");
+
+        function nextPage() {
+            // Play music on first click (browsers block auto-play)
+            if (currentPage === 1) {
+                audio.play().catch(error => {
+                    console.log("Audio playback failed: " + error);
+                });
+            }
+
+            // Hide current page
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            
+            // Increment page
+            currentPage++;
+
+            // Show next page
+            if (currentPage <= totalPages) {
+                document.getElementById(`page${currentPage}`).classList.add('active');
+            }
+        }
+
+        // Generate falling hearts dynamically
+        function createHearts() {
+            const heartContainer = document.getElementById('heartContainer');
+            for (let i = 0; i < 15; i++) {
+                let div = document.createElement('div');
+                div.classList.add('heart');
+                div.style.left = Math.random() * 100 + "vw";
+                div.style.animationDuration = (Math.random() * 5 + 5) + "s";
+                div.style.animationDelay = Math.random() * 5 + "s";
+                heartContainer.appendChild(div);
+            }
+        }
+        createHearts();
+    </script>
+</body>
+  </html>
